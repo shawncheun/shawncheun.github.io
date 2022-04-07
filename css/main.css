@@ -927,7 +927,7 @@ label {
   font-weight: bold;
 }
 .markdown-body pre {
-  font-size: 85% !important;
+  font-size: 80% !important;
 }
 .markdown-body pre code {
   overflow-x: auto;
