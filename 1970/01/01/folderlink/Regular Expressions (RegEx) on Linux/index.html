@@ -1,0 +1,550 @@
+
+
+<!DOCTYPE html>
+<html lang="en" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/redhat.webp">
+  <link rel="icon" href="/img/redhat.webp">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="John Doe">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="Regular Expressions (RegEx) on Linux Regexps are most commonly used with the Linux commands:- grep, sed, tr, vi. The backtick(&#96;) is actually called command substitution.  Some basic regular expres">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Hexo">
+<meta property="og:url" content="http://example.com/1970/01/01/folderlink/Regular%20Expressions%20(RegEx)%20on%20Linux/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="Regular Expressions (RegEx) on Linux Regexps are most commonly used with the Linux commands:- grep, sed, tr, vi. The backtick(&#96;) is actually called command substitution.  Some basic regular expres">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://example.com/home/shawn/.config/Typora/typora-user-images/image-20220405194409111.png">
+<meta property="og:image" content="http://example.com/home/shawn/.config/Typora/typora-user-images/image-20220405194437845.png">
+<meta property="og:image" content="http://example.com/home/shawn/.config/Typora/typora-user-images/image-20220405194515192.png">
+<meta property="og:image" content="http://example.com/home/shawn/.config/Typora/typora-user-images/image-20220405194547593.png">
+<meta property="og:image" content="http://example.com/home/shawn/.config/Typora/typora-user-images/image-20220405194608766.png">
+<meta property="og:image" content="http://example.com/home/shawn/.config/Typora/typora-user-images/image-20220405194727369.png">
+<meta property="article:published_time" content="1970-01-01T00:00:00.000Z">
+<meta property="article:modified_time" content="2022-04-05T11:47:45.000Z">
+<meta property="article:author" content="John Doe">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="http://example.com/home/shawn/.config/Typora/typora-user-images/image-20220405194409111.png">
+  
+  
+  <title>Hexo</title>
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@4/github-markdown.min.css" />
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hint.css@2/hint.min.css" />
+
+  
+    
+    
+      
+      <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10/styles/atom-one-dark.min.css" />
+    
+  
+
+  
+    <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3/dist/jquery.fancybox.min.css" />
+  
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_ba1fz6golrf.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    var CONFIG = {"hostname":"example.com","root":"/","version":"1.8.14","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+<meta name="generator" content="Hexo 6.1.0"></head>
+
+
+<body>
+  <header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>WAKE ME UP</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                Home
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                Archives
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                Categories
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                Tags
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                About
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              &nbsp;<i class="iconfont icon-search"></i>&nbsp;
+            </a>
+          </li>
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="banner" id="banner" parallax=true
+         style="background: url('/img/genius.png') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="page-header text-center fade-in-up">
+            <span class="h2" id="subtitle" title="">
+              
+            </span>
+
+            
+              <div class="mt-3">
+  
+  
+    <span class="post-meta">
+      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+      <time datetime="1970-01-01 08:00" pubdate>
+        January 1, 1970 am
+      </time>
+    </span>
+  
+</div>
+
+<div class="mt-1">
+  
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      3.4k 字
+    </span>
+  
+
+  
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      28 分钟
+    </span>
+  
+
+  
+  
+</div>
+
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none"></h1>
+            
+            <div class="markdown-body">
+              <h1 id="Regular-Expressions-RegEx-on-Linux"><a href="#Regular-Expressions-RegEx-on-Linux" class="headerlink" title="Regular Expressions (RegEx) on Linux"></a>Regular Expressions (RegEx) on Linux</h1><blockquote>
+<p>Regexps are most commonly used with the Linux commands:- grep, sed, tr, vi.</p>
+<p>The <em>backtick(&#96;)</em> is actually called command substitution.</p>
+</blockquote>
+<p>Some basic regular expressions:</p>
+<table>
+<thead>
+<tr>
+<th align="left">Sr. no.</th>
+<th align="left">Symbol</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">1.</td>
+<td align="left">.</td>
+<td align="left">It is called a wild card character, It matches any <strong>one</strong> character other than the new line.</td>
+</tr>
+<tr>
+<td align="left">2.</td>
+<td align="left">^</td>
+<td align="left">It matches the start of the string.</td>
+</tr>
+<tr>
+<td align="left">3.</td>
+<td align="left">$</td>
+<td align="left">It matches the end of the string.</td>
+</tr>
+<tr>
+<td align="left">4.</td>
+<td align="left">*</td>
+<td align="left">It matches up to zero or more occurrences i.e. any number of times of the character of the string.</td>
+</tr>
+<tr>
+<td align="left">5.</td>
+<td align="left">\</td>
+<td align="left">It is used for escape following character.</td>
+</tr>
+<tr>
+<td align="left">6.</td>
+<td align="left">()</td>
+<td align="left">It is used to match or search for a set of regular expressions.</td>
+</tr>
+<tr>
+<td align="left">7.</td>
+<td align="left">?</td>
+<td align="left">It matches exactly one character in the string or stream.</td>
+</tr>
+</tbody></table>
+<p><strong>Text File Used:</strong> <a target="_blank" rel="noopener" href="https://media.geeksforgeeks.org/wp-content/cdn-uploads/20210701185945/Fruits-name-by-amnindersingh_141414.txt">Fruits-name</a>, it is a text file with MS-DOS line terminator which need to be coverted to Unix text file. Or create a file with the name of <code>fruit.txt</code>, and filled with the content below:</p>
+<figure class="highlight mipsasm"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs mipsasm">Apple<br>Apricot<br>Avocado<br><span class="hljs-keyword">Banana</span><br><span class="hljs-keyword"></span><span class="hljs-keyword">Bilberry</span><br><span class="hljs-keyword"></span><span class="hljs-keyword">Blackberry</span><br><span class="hljs-keyword"></span><span class="hljs-keyword">Blackcurrant</span><br><span class="hljs-keyword"></span><span class="hljs-keyword">Blueberry</span><br><span class="hljs-keyword"></span><span class="hljs-keyword">Boysenberry</span><br><span class="hljs-keyword"></span>Currant<br>Cherry<br>Cherimoya<br>Chico fruit<br><span class="hljs-keyword">Cloudberry</span><br><span class="hljs-keyword"></span>Coconut<br>Cranberry<br>Cucumber<br>Custard apple<br>Damson<br>Date<br>Dragonfruit<br>Durian<br>Elderberry<br>Feijoa<br>Fig<br>Goji <span class="hljs-keyword">berry</span><br><span class="hljs-keyword"></span>Gooseberry<br>Grape<br>Raisin<br>Grapefruit<br>Guava<br>Honeyberry<br>Huckleberry<br><span class="hljs-keyword">Jabuticaba</span><br><span class="hljs-keyword"></span><span class="hljs-keyword">Jackfruit</span><br><span class="hljs-keyword"></span><span class="hljs-keyword">Jambul</span><br><span class="hljs-keyword"></span><span class="hljs-keyword">Jujube</span><br><span class="hljs-keyword"></span><span class="hljs-keyword">Juniper </span><span class="hljs-keyword">berry</span><br><span class="hljs-keyword"></span>Kiwano<br>Kiwifruit<br>Kumquat<br>Lemon<br>Lime<br>Loquat<br>Longan<br>Lychee<br>Mango<br>Mangosteen<br>Marionberry<br>Melon<br>Cantaloupe<br>Honeydew<br>Watermelon<br>Miracle fruit<br><span class="hljs-keyword">Mulberry</span><br><span class="hljs-keyword"></span>Nectarine<br>Nance<br>Olive<br><span class="hljs-keyword">Orange</span><br><span class="hljs-keyword"></span><span class="hljs-keyword">Blood </span><span class="hljs-keyword">orange</span><br><span class="hljs-keyword"></span>Clementine<br>Mandarine<br>Tangerine<br>Papaya<br>Passionfruit<br>Peach<br>Pear<br>Persimmon<br>Physalis<br>Plantain<br>Plum<br>Prune<br>Pineapple<br>Plumcot<br>Pomegranate<br>Pomelo<br>Purple mangosteen<br>Quince<br>Raspberry<br>Salmonberry<br>Rambutan<br>Redcurrant<br>Salal <span class="hljs-keyword">berry</span><br><span class="hljs-keyword"></span>Salak<br>Satsuma<br>Soursop<br>Star fruit<br>Solanum quitoense<br>Strawberry<br>Tamarillo<br>Tamarind<br>Ugli fruit<br>Yuzu<br><br></code></pre></div></td></tr></table></figure>
+
+
+
+<p><strong>1.0. Using “.” (dot) to match strings.</strong></p>
+<p><strong>Script:</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs bash"><span class="hljs-meta">#!/bin/sh</span><br><br><span class="hljs-comment"># Basic Regular Expression</span><br><br><span class="hljs-comment"># 1. Using “.” to match strings.</span><br><br><span class="hljs-comment"># loading the text file</span><br><br>fruits_file=`<span class="hljs-built_in">cat</span> fruit.txt | grep App.e`<br><br><span class="hljs-comment"># here the original (answer) word will be Apple,</span><br><br><span class="hljs-comment"># but because we don’t know the spelling of the Apple,</span><br><br><span class="hljs-comment"># we will put a dot (.) in that place.</span><br><br><span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;1. Using &#x27;.&#x27; to find the original word, whereas given word is &#x27;App.e&#x27;&quot;</span><br><br><span class="hljs-comment"># displaying output</span><br><br><span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;Output:&quot;</span><br><br><span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;<span class="hljs-variable">$fruits_file</span>&quot;</span><br></code></pre></div></td></tr></table></figure>
+
+<p><strong>Output</strong>:</p>
+<figure class="highlight vim"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs vim">$ <span class="hljs-keyword">sh</span> regex.dot.<span class="hljs-keyword">sh</span> <br><span class="hljs-number">1</span>. Using <span class="hljs-string">&#x27;.&#x27;</span> <span class="hljs-keyword">to</span> <span class="hljs-keyword">find</span> the original word, whereas given word <span class="hljs-keyword">is</span> <span class="hljs-string">&#x27;App.e&#x27;</span><br>Output:<br>Apple<br></code></pre></div></td></tr></table></figure>
+
+<p><img src="/home/shawn/.config/Typora/typora-user-images/image-20220405194409111.png" srcset="/img/loading.gif" lazyload alt="image-20220405194409111"></p>
+<p><strong>2.0.  Using “^” (caret) to match the beginning of the string</strong></p>
+<figure class="highlight powershell"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs powershell"><span class="hljs-variable">$</span> <span class="hljs-built_in">cat</span> fruit.txt | grep ^B<br>Banana<br>Bilberry<br>Blackberry<br>Blackcurrant<br>Blueberry<br>Boysenberry<br>Blood orange<br></code></pre></div></td></tr></table></figure>
+
+<p><img src="/home/shawn/.config/Typora/typora-user-images/image-20220405194437845.png" srcset="/img/loading.gif" lazyload alt="image-20220405194437845"></p>
+<p><strong>3.0. Using “$” (dollar sign) to match the ending of the string</strong></p>
+<figure class="highlight powershell"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs powershell"><span class="hljs-variable">$</span> <span class="hljs-built_in">cat</span> fruit.txt | grep e<span class="hljs-variable">$</span><br>Apple<br>Custard apple<br>Date<br>Grape<br>Jujube<br>Lime<br>Lychee<br>Cantaloupe<br>Nectarine<br>Nance<br>Olive<br>Orange<br>Blood orange<br>Clementine<br>Mandarine<br>Tangerine<br>Prune<br>Pineapple<br>Pomegranate<br>Quince<br>Solanum quitoense<br></code></pre></div></td></tr></table></figure>
+
+<p><img src="/home/shawn/.config/Typora/typora-user-images/image-20220405194515192.png" srcset="/img/loading.gif" lazyload alt="image-20220405194515192"></p>
+<p><strong>4.0. Using “*” (an asterisk) to find any number of repetitions of a string</strong></p>
+<figure class="highlight vim"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs vim">$ <span class="hljs-keyword">cat</span> fruit.txt | <span class="hljs-keyword">grep</span> ap*<span class="hljs-keyword">le</span><br>Custard apple<br>Pineapple<br></code></pre></div></td></tr></table></figure>
+
+<p><img src="/home/shawn/.config/Typora/typora-user-images/image-20220405194547593.png" srcset="/img/loading.gif" lazyload alt="image-20220405194547593"></p>
+<p><strong>5,0. Using “\” (a backslash) to match the special symbol</strong></p>
+<figure class="highlight mathematica"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs mathematica"><span class="hljs-variable">$</span> <span class="hljs-variable">cat</span> <span class="hljs-variable">fruit</span><span class="hljs-operator">.</span><span class="hljs-variable">txt</span> <span class="hljs-operator">|</span> <span class="hljs-variable">grep</span> <span class="hljs-string">&quot;\ &quot;</span><br><span class="hljs-variable">Chico</span> <span class="hljs-variable">fruit</span><br><span class="hljs-variable">Custard</span> <span class="hljs-variable">apple</span><br><span class="hljs-variable">Goji</span> <span class="hljs-variable">berry</span><br><span class="hljs-variable">Juniper</span> <span class="hljs-variable">berry</span><br><span class="hljs-variable">Miracle</span> <span class="hljs-variable">fruit</span><br><span class="hljs-variable">Blood</span> <span class="hljs-variable">orange</span><br><span class="hljs-built_in">Purple</span> <span class="hljs-variable">mangosteen</span><br><span class="hljs-variable">Salal</span> <span class="hljs-variable">berry</span><br><span class="hljs-built_in">Star</span> <span class="hljs-variable">fruit</span><br><span class="hljs-variable">Solanum</span> <span class="hljs-variable">quitoense</span><br><span class="hljs-variable">Ugli</span> <span class="hljs-variable">fruit</span><br></code></pre></div></td></tr></table></figure>
+
+<p><img src="/home/shawn/.config/Typora/typora-user-images/image-20220405194608766.png" srcset="/img/loading.gif" lazyload alt="image-20220405194608766"></p>
+<p><strong>6.0. .Using “()” (braces) to match the group of regexp.</strong></p>
+<figure class="highlight mathematica"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs mathematica"><span class="hljs-variable">$</span> <span class="hljs-variable">cat</span> <span class="hljs-variable">fruit</span><span class="hljs-operator">.</span><span class="hljs-variable">txt</span> <span class="hljs-operator">|</span> <span class="hljs-variable">grep</span> <span class="hljs-operator">-</span><span class="hljs-built_in">E</span> <span class="hljs-string">&quot;(fruit)&quot;</span><br><span class="hljs-variable">Chico</span> <span class="hljs-variable">fruit</span><br><span class="hljs-variable">Dragonfruit</span><br><span class="hljs-variable">Grapefruit</span><br><span class="hljs-variable">Jackfruit</span><br><span class="hljs-variable">Kiwifruit</span><br><span class="hljs-variable">Miracle</span> <span class="hljs-variable">fruit</span><br><span class="hljs-variable">Passionfruit</span><br><span class="hljs-built_in">Star</span> <span class="hljs-variable">fruit</span><br><span class="hljs-variable">Ugli</span> <span class="hljs-variable">fruit</span><br></code></pre></div></td></tr></table></figure>
+
+<p><strong>7.0. Using “?”(question mark) to find all the matching characters</strong></p>
+<figure class="highlight powershell"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs powershell"><span class="hljs-variable">$</span> <span class="hljs-built_in">cat</span> fruit.txt | grep <span class="hljs-literal">-E</span> Ch?<br>Currant<br>Cherry<br>Cherimoya<br>Chico fruit<br>Cloudberry<br>Coconut<br>Cranberry<br>Cucumber<br>Custard apple<br>Cantaloupe<br>Clementine<br></code></pre></div></td></tr></table></figure>
+
+<p><img src="/home/shawn/.config/Typora/typora-user-images/image-20220405194727369.png" srcset="/img/loading.gif" lazyload alt="image-20220405194727369"></p>
+
+            </div>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                
+              </div>
+              
+                <p class="note note-warning">
+                  
+                    本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！
+                  
+                </p>
+              
+              
+                <div class="post-prevnext">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/1970/01/01/folderlink/cut%20command%20in%20Linux%20with%20examples/">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile"></span>
+                        <span class="visible-mobile">Previous</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/1970/01/01/folderlink/%E3%80%8A%E6%88%91%E5%85%81%E8%AE%B8%E3%80%8B/">
+                        <span class="hidden-mobile"></span>
+                        <span class="visible-mobile">Next</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;TOC</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">Search</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">keyword</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+
+    
+  </main>
+
+  <footer class="text-center mt-5 py-3">
+  <div class="footer-content">
+     <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+  </div>
+  
+  <div class="statistics">
+    
+    
+
+    
+      
+        <!-- 不蒜子统计PV -->
+        <span id="busuanzi_container_site_pv" style="display: none">
+            总访问量 
+            <span id="busuanzi_value_site_pv"></span>
+             次
+          </span>
+      
+      
+        <!-- 不蒜子统计UV -->
+        <span id="busuanzi_container_site_uv" style="display: none">
+            总访客数 
+            <span id="busuanzi_value_site_uv"></span>
+             人
+          </span>
+      
+    
+  </div>
+
+
+  
+
+  
+</footer>
+
+
+  <!-- SCRIPTS -->
+  
+  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js" ></script>
+<script  src="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+<!-- Plugins -->
+
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+  
+
+
+
+  
+    <script  src="https://cdn.jsdelivr.net/npm/tocbot@4/dist/tocbot.min.js" ></script>
+  
+  
+    <script  src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3/dist/jquery.fancybox.min.js" ></script>
+  
+  
+    <script  src="https://cdn.jsdelivr.net/npm/anchor-js@4/anchor.min.js" ></script>
+  
+  
+    <script defer src="https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js" ></script>
+  
+
+
+
+  <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
+
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/typed.js@2/lib/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var title = document.getElementById('subtitle').title;
+      
+        typing(title);
+      
+    })(window, document);
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- 主题的启动项 保持在最底部 -->
+<script  src="/js/boot.js" ></script>
+
+
+</body>
+</html>
