@@ -1,0 +1,515 @@
+
+
+<!DOCTYPE html>
+<html lang="en" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/redhat.webp">
+  <link rel="icon" href="/img/redhat.webp">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="John Doe">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="he procedure is as follows to set up and configure a static IP information:  Open the terminal application. Log in to remote or server using ssh command. Backup &#x2F;etc&#x2F;network&#x2F;interfaces">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Set static IP address on Debian Linux">
+<meta property="og:url" content="http://example.com/2022/04/10/Desktop/2022-04-10-Set-static-IP-address-on-Debian-Linux/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="he procedure is as follows to set up and configure a static IP information:  Open the terminal application. Log in to remote or server using ssh command. Backup &#x2F;etc&#x2F;network&#x2F;interfaces">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://www.howtogeek.com/wp-content/uploads/2021/07/debian-11-bullseye-gnome-desktop-wide.png?height=200p&trim=2,2,2,2">
+<meta property="article:published_time" content="2022-04-10T15:25:38.000Z">
+<meta property="article:modified_time" content="2022-04-20T04:32:01.739Z">
+<meta property="article:author" content="John Doe">
+<meta property="article:tag" content="Debian">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://www.howtogeek.com/wp-content/uploads/2021/07/debian-11-bullseye-gnome-desktop-wide.png?height=200p&trim=2,2,2,2">
+  
+  
+  <title>Set static IP address on Debian Linux - Hexo</title>
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@4/github-markdown.min.css" />
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hint.css@2/hint.min.css" />
+
+  
+    
+    
+      
+      <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10/styles/atom-one-dark.min.css" />
+    
+  
+
+  
+    <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3/dist/jquery.fancybox.min.css" />
+  
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_ba1fz6golrf.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    var CONFIG = {"hostname":"example.com","root":"/","version":"1.8.14","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+<meta name="generator" content="Hexo 6.1.0"></head>
+
+
+<body>
+  <header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>WAKE ME UP</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                Home
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                Archives
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                Categories
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                Tags
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                About
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              &nbsp;<i class="iconfont icon-search"></i>&nbsp;
+            </a>
+          </li>
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="banner" id="banner" parallax=true
+         style="background: url('/img/genius.png') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="page-header text-center fade-in-up">
+            <span class="h2" id="subtitle" title="Set static IP address on Debian Linux">
+              
+            </span>
+
+            
+              <div class="mt-3">
+  
+  
+    <span class="post-meta">
+      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+      <time datetime="2022-04-10 23:25" pubdate>
+        April 10, 2022 pm
+      </time>
+    </span>
+  
+</div>
+
+<div class="mt-1">
+  
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      2.8k 字
+    </span>
+  
+
+  
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      24 分钟
+    </span>
+  
+
+  
+  
+</div>
+
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">Set static IP address on Debian Linux</h1>
+            
+            <div class="markdown-body">
+              <blockquote>
+<p>he procedure is as follows to set up and configure a static IP information:</p>
+<ol>
+<li>Open the terminal application.</li>
+<li>Log in to remote or server using ssh command.</li>
+<li>Backup &#x2F;etc&#x2F;network&#x2F;interfaces file running <strong>sudo cp &#x2F;etc&#x2F;network&#x2F;interfaces &#x2F;root&#x2F;</strong></li>
+<li>Edit the &#x2F;etc&#x2F;network&#x2F;interfaces</li>
+<li>Configure static IP address for enp0s5 Ethernet interface: <strong>address 192.168.2.249</strong></li>
+<li>Add subnet mask: <strong>netmask 255.255.255.0</strong></li>
+<li>Set up default gateway IP: <strong>gateway 192.168.2.254</strong></li>
+<li>Finally add DNS resolver IP: <strong>dns-nameservers 192.168.2.254 8.8.8.8 1.1.1.1</strong></li>
+</ol>
+<p>Let us see all commands and examples in details.</p>
+</blockquote>
+<h2 id="Finding-your-network-interfaces-name-on-Debian"><a href="#Finding-your-network-interfaces-name-on-Debian" class="headerlink" title="Finding your network interfaces name on Debian"></a>Finding your network interfaces name on Debian</h2><p>Show available ethenet network interfaces:</p>
+<figure class="highlight apache"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs apache"><span class="hljs-attribute">root</span>@debian:/etc/network# ip -c link show<br><br><span class="hljs-attribute">1</span>: lo: &lt;LOOPBACK,UP,LOWER_UP&gt; mtu <span class="hljs-number">65536</span> qdisc noqueue state UNKNOWN mode DEFAULT group default qlen <span class="hljs-number">1000</span><br>    <span class="hljs-attribute">link</span>/loopback <span class="hljs-number">00</span>:<span class="hljs-number">00</span>:<span class="hljs-number">00</span>:<span class="hljs-number">00</span>:<span class="hljs-number">00</span>:<span class="hljs-number">00</span> brd <span class="hljs-number">00</span>:<span class="hljs-number">00</span>:<span class="hljs-number">00</span>:<span class="hljs-number">00</span>:<span class="hljs-number">00</span>:<span class="hljs-number">00</span><br><span class="hljs-attribute">2</span>: ens33: &lt;BROADCAST,MULTICAST,UP,LOWER_UP&gt; mtu <span class="hljs-number">1500</span> qdisc pfifo_fast state UP mode DEFAULT group default qlen <span class="hljs-number">1000</span><br>    <span class="hljs-attribute">link</span>/ether <span class="hljs-number">00</span>:<span class="hljs-number">0</span>c:<span class="hljs-number">29</span>:<span class="hljs-number">1</span>d:<span class="hljs-number">62</span>:ad brd ff:ff:ff:ff:ff:ff<br>    <span class="hljs-attribute">altname</span> enp2s1<br></code></pre></div></td></tr></table></figure>
+
+<p>Show the current IP address assinged to that network interface:</p>
+<figure class="highlight apache"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs apache"><span class="hljs-attribute">root</span>@debian:/etc/network# ip -c addr show ens33<br><span class="hljs-attribute">2</span>: ens33: &lt;BROADCAST,MULTICAST,UP,LOWER_UP&gt; mtu <span class="hljs-number">1500</span> qdisc pfifo_fast state UP group default qlen <span class="hljs-number">1000</span><br>    <span class="hljs-attribute">link</span>/ether <span class="hljs-number">00</span>:<span class="hljs-number">0</span>c:<span class="hljs-number">29</span>:<span class="hljs-number">1</span>d:<span class="hljs-number">62</span>:ad brd ff:ff:ff:ff:ff:ff<br>    <span class="hljs-attribute">altname</span> enp2s1<br>    <span class="hljs-attribute">inet</span> <span class="hljs-number">2.1.1.131</span>/<span class="hljs-number">24</span> brd <span class="hljs-number">2.1.1.255</span> scope global dynamic ens33<br>       <span class="hljs-attribute">valid_lft</span> <span class="hljs-number">1322</span>sec preferred_lft <span class="hljs-number">1322</span>sec<br>    <span class="hljs-attribute">inet6</span> fe80::<span class="hljs-number">20</span>c:<span class="hljs-number">29</span>ff:fe1d:<span class="hljs-number">62</span>ad/<span class="hljs-number">64</span> scope link <br>       <span class="hljs-attribute">valid_lft</span> forever preferred_lft forever<br></code></pre></div></td></tr></table></figure>
+
+
+
+<h2 id="Configuring-Static-IP-on-Debian"><a href="#Configuring-Static-IP-on-Debian" class="headerlink" title="Configuring Static IP on Debian"></a>Configuring Static IP on Debian</h2><p>The &#x2F;etc&#x2F;network&#x2F;interfaces[&#x2F;file] contains network interface configuration information for Debian Linux.</p>
+<figure class="highlight awk"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs awk">nano <span class="hljs-regexp">/etc/</span>network/interfaces<br></code></pre></div></td></tr></table></figure>
+
+<p>Look for the primary network interface ens33, remove dhcp and allow-hotplug lines. </p>
+<figure class="highlight nginx"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs nginx"><span class="hljs-comment"># The loopback network interface</span><br><span class="hljs-attribute">auto</span> lo<br>iface lo inet loopback<br> <br><span class="hljs-comment"># The primary network interface</span><br>auto ens33<br>iface ens33  inet static<br>address <span class="hljs-number">2.1.1.129</span><br>netmask <span class="hljs-number">255.255.255.0</span><br>gateway <span class="hljs-number">2.1.1.2</span><br><span class="hljs-comment">#dns-domain sweet.home</span><br>dns-nameservers <span class="hljs-number">2.1.1.2</span><br></code></pre></div></td></tr></table></figure>
+
+
+
+<h2 id="Restart-networking-service-on-Debian"><a href="#Restart-networking-service-on-Debian" class="headerlink" title="Restart networking service on Debian"></a>Restart networking service on Debian</h2><figure class="highlight maxima"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs maxima">systemctl <span class="hljs-built_in">restart</span> networking.service<br>systemctl <span class="hljs-built_in">status</span> networking.service<br></code></pre></div></td></tr></table></figure>
+
+
+
+<h2 id="Check-the-new-IP-address-assigned-on-Debian"><a href="#Check-the-new-IP-address-assigned-on-Debian" class="headerlink" title="Check the new IP address assigned on Debian"></a>Check the new IP address assigned on Debian</h2><figure class="highlight apache"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs apache"><span class="hljs-attribute">ip</span> -c addr show<br><span class="hljs-attribute">ip</span> -c addr show ens33<br><br><span class="hljs-attribute">2</span>: ens33: &lt;BROADCAST,MULTICAST,UP,LOWER_UP&gt; mtu <span class="hljs-number">1500</span> qdisc pfifo_fast state UP group default qlen <span class="hljs-number">1000</span><br>    <span class="hljs-attribute">link</span>/ether <span class="hljs-number">00</span>:<span class="hljs-number">0</span>c:<span class="hljs-number">29</span>:<span class="hljs-number">1</span>d:<span class="hljs-number">62</span>:ad brd ff:ff:ff:ff:ff:ff<br>    <span class="hljs-attribute">altname</span> enp2s1<br>    <span class="hljs-attribute">inet</span> <span class="hljs-number">2.1.1.129</span>/<span class="hljs-number">24</span> brd <span class="hljs-number">2.1.1.255</span> scope global ens33<br>       <span class="hljs-attribute">valid_lft</span> forever preferred_lft forever<br>    <span class="hljs-attribute">inet6</span> fe80::<span class="hljs-number">20</span>c:<span class="hljs-number">29</span>ff:fe1d:<span class="hljs-number">62</span>ad/<span class="hljs-number">64</span> scope link <br>       <span class="hljs-attribute">valid_lft</span> forever preferred_lft forever<br></code></pre></div></td></tr></table></figure>
+
+
+
+<h1 id="Another-Way-for-All-Linux-Distros"><a href="#Another-Way-for-All-Linux-Distros" class="headerlink" title="Another Way for All Linux Distros (*)"></a>Another Way for All Linux Distros (*)</h1><figure class="highlight routeros"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs routeros"><span class="hljs-comment"># Get a listing of network interfaces</span><br>nmcli device<br><span class="hljs-comment"># list here.. say, there&#x27;s an ens33</span><br><br><span class="hljs-comment"># nmcli connection modify ens33 ipv4.gateway, ipv4.dns, ...</span><br>nmcli<span class="hljs-built_in"> connection </span>modify ens33 ipv4.addresses 2.1.1.130/24<br>nmcli<span class="hljs-built_in"> connection </span>modify ens33 ipv4.gateway 2.1.1.2<br>nmcli<span class="hljs-built_in"> connection </span>modify ens33 ipv4.dns 2.1.1.2<br>nmcli<span class="hljs-built_in"> connection </span>modify ens33 ipv4.method<span class="hljs-built_in"> manual</span><br><span class="hljs-built_in"></span><br><span class="hljs-comment"># apply these settings right away!</span><br>nmcli<span class="hljs-built_in"> connection </span>down ens33 &amp;&amp; nmcli<span class="hljs-built_in"> connection </span>up ens33<br></code></pre></div></td></tr></table></figure>
+
+
+            </div>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                  <div class="post-meta mr-3">
+                    <i class="iconfont icon-category"></i>
+                    
+                      <a class="hover-with-bg" href="/categories/%E5%AD%A6%E4%B9%A0-Learning/">学习 / Learning</a>
+                    
+                  </div>
+                
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/tags/Debian/">Debian</a>
+                    
+                  </div>
+                
+              </div>
+              
+                <p class="note note-warning">
+                  
+                    本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！
+                  
+                </p>
+              
+              
+                <div class="post-prevnext">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2022/04/12/Desktop/Apps-for-Apple-Watch/">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">Apps for Apple Watch</span>
+                        <span class="visible-mobile">Previous</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2022/04/08/Desktop/Github%20Token%20For%20PicGo%20PicBed/">
+                        <span class="hidden-mobile">Github Token For PicGo PicBed</span>
+                        <span class="visible-mobile">Next</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;TOC</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">Search</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">keyword</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+
+    
+  </main>
+
+  <footer class="text-center mt-5 py-3">
+  <div class="footer-content">
+     <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+  </div>
+  
+  <div class="statistics">
+    
+    
+
+    
+      
+        <!-- 不蒜子统计PV -->
+        <span id="busuanzi_container_site_pv" style="display: none">
+            总访问量 
+            <span id="busuanzi_value_site_pv"></span>
+             次
+          </span>
+      
+      
+        <!-- 不蒜子统计UV -->
+        <span id="busuanzi_container_site_uv" style="display: none">
+            总访客数 
+            <span id="busuanzi_value_site_uv"></span>
+             人
+          </span>
+      
+    
+  </div>
+
+
+  
+
+  
+</footer>
+
+
+  <!-- SCRIPTS -->
+  
+  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js" ></script>
+<script  src="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+<!-- Plugins -->
+
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+  
+
+
+
+  
+    <script  src="https://cdn.jsdelivr.net/npm/tocbot@4/dist/tocbot.min.js" ></script>
+  
+  
+    <script  src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3/dist/jquery.fancybox.min.js" ></script>
+  
+  
+    <script  src="https://cdn.jsdelivr.net/npm/anchor-js@4/anchor.min.js" ></script>
+  
+  
+    <script defer src="https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js" ></script>
+  
+
+
+
+  <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
+
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/typed.js@2/lib/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var title = document.getElementById('subtitle').title;
+      
+        typing(title);
+      
+    })(window, document);
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- 主题的启动项 保持在最底部 -->
+<script  src="/js/boot.js" ></script>
+
+
+</body>
+</html>

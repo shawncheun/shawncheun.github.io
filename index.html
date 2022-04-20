@@ -1,0 +1,795 @@
+
+
+<!DOCTYPE html>
+<html lang="en" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/redhat.webp">
+  <link rel="icon" href="/img/redhat.webp">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="John Doe">
+  <meta name="keywords" content="">
+  
+    <meta property="og:type" content="website">
+<meta property="og:title" content="Hexo">
+<meta property="og:url" content="http://example.com/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:locale" content="en_US">
+<meta property="article:author" content="John Doe">
+<meta name="twitter:card" content="summary_large_image">
+  
+  
+  <title>Hexo</title>
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/css/bootstrap.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_ba1fz6golrf.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    var CONFIG = {"hostname":"example.com","root":"/","version":"1.8.14","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+<meta name="generator" content="Hexo 6.1.0"></head>
+
+
+<body>
+  <header style="height: 100vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>WAKE ME UP</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                Home
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                Archives
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                Categories
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                Tags
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                About
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              &nbsp;<i class="iconfont icon-search"></i>&nbsp;
+            </a>
+          </li>
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="banner" id="banner" parallax=true
+         style="background: url('/img/sunrise.png') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="page-header text-center fade-in-up">
+            <span class="h2" id="subtitle" title="愿...你始终被生活温柔以待">
+              
+            </span>
+
+            
+          </div>
+
+          
+            <div class="scroll-down-bar">
+              <i class="iconfont icon-arrowdown"></i>
+            </div>
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      <div class="container nopadding-x-md">
+        <div class="py-5" id="board"
+          style=margin-top:0>
+          
+          <div class="container">
+            <div class="row">
+              <div class="col-12 col-md-10 m-auto">
+                
+
+
+  <div class="row mx-auto index-card">
+    
+    
+      <div class="col-12 col-md-4 m-auto index-img">
+        <a href="/2022/04/20/Desktop/2022-4-16-Linux-Installation-Manually-Make-Partition/" target="_self">
+          <img src="https://2.bp.blogspot.com/-0-HWwbPYC20/Xq1A6djhsAI/AAAAAAAAbEU/JKwsro0nPUkzLJyar-F3gg-K8BFV-jAOgCK4BGAYYCw/s1600/seven-last-sight.png" srcset="/img/loading.gif" lazyload alt="Linux Installation Manually Make Partition">
+        </a>
+      </div>
+    
+    <article class="col-12 col-md-8 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2022/04/20/Desktop/2022-4-16-Linux-Installation-Manually-Make-Partition/" target="_self">
+          Linux Installation Manually Make Partition
+        </a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/2022/04/20/Desktop/2022-4-16-Linux-Installation-Manually-Make-Partition/" target="_self">
+          
+          Partitions system20GB FAT32 partitionEXT4 Journaling FilesystemFormat the Partition checkedMount point: &#x2F;  swap:1GB FAT32 partitionswap partition  EFI: (uefi-based only)100MB FAT32 partitionFAT32
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2022-04-20 12:13" pubdate>
+              2022-04-20
+            </time>
+          </div>
+        
+        
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+      <div class="col-12 col-md-4 m-auto index-img">
+        <a href="/2022/04/18/Desktop/2022-04-18-Apple-podcast-connective-issue-with-clash-router-globe-rule/" target="_self">
+          <img src="https://heart-contact.dk/wp-content/uploads/2019/10/Apple-podcast.png" srcset="/img/loading.gif" lazyload alt="Apple podcast connective issue with clash router globe rule">
+        </a>
+      </div>
+    
+    <article class="col-12 col-md-8 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2022/04/18/Desktop/2022-04-18-Apple-podcast-connective-issue-with-clash-router-globe-rule/" target="_self">
+          Apple podcast connective issue with clash router globe rule
+        </a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/2022/04/18/Desktop/2022-04-18-Apple-podcast-connective-issue-with-clash-router-globe-rule/" target="_self">
+          
+          Solution:Switch clash DNS mode frome redir mode to fake-ip mode
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2022-04-18 00:00" pubdate>
+              2022-04-18
+            </time>
+          </div>
+        
+        
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+      <div class="col-12 col-md-4 m-auto index-img">
+        <a href="/2022/04/16/Desktop/2022-4-16-Add-Application-Icon/" target="_self">
+          <img src="https://i.ytimg.com/vi/cwuN9UzruF8/maxresdefault.jpg" srcset="/img/loading.gif" lazyload alt="Add Application Icon">
+        </a>
+      </div>
+    
+    <article class="col-12 col-md-8 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2022/04/16/Desktop/2022-4-16-Add-Application-Icon/" target="_self">
+          Add Application Icon
+        </a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/2022/04/16/Desktop/2022-4-16-Add-Application-Icon/" target="_self">
+          
+          To add applications to the Dash (then you press the windows key), Go to ~&#x2F;.local&#x2F;share&#x2F;applications and create your .desktop files there. For example:  Open Nautilus (also called Files (the file manag
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2022-04-16 16:19" pubdate>
+              2022-04-16
+            </time>
+          </div>
+        
+        
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+      <div class="col-12 col-md-4 m-auto index-img">
+        <a href="/2022/04/16/Desktop/2022-4-16-Linux-Release/" target="_self">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/35/Tux.svg/800px-Tux.svg.png" srcset="/img/loading.gif" lazyload alt="Linux Release">
+        </a>
+      </div>
+    
+    <article class="col-12 col-md-8 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2022/04/16/Desktop/2022-4-16-Linux-Release/" target="_self">
+          Linux Release
+        </a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/2022/04/16/Desktop/2022-4-16-Linux-Release/" target="_self">
+          
+          Linux Release DateUbuntu 22.04Key events in Ubuntu 22.04 Jammy Jellyfish release schedule (strikethrough means they’ve passed):  Feature Freeze: February 24, 2022 UI Freeze: March 17, 2022 Ubuntu 22.0
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2022-04-16 16:04" pubdate>
+              2022-04-16
+            </time>
+          </div>
+        
+        
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+      <div class="col-12 col-md-4 m-auto index-img">
+        <a href="/2022/04/16/Desktop/2022-4-16-5-Things-You-MUST-DO-After-Installing-Fedora-35/" target="_self">
+          <img src="https://dade2.net/wp-content/uploads/2020/10/fedora-1024x614.jpg" srcset="/img/loading.gif" lazyload alt="5 Things You MUST DO After Installing Fedora 35">
+        </a>
+      </div>
+    
+    <article class="col-12 col-md-8 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2022/04/16/Desktop/2022-4-16-5-Things-You-MUST-DO-After-Installing-Fedora-35/" target="_self">
+          5 Things You MUST DO After Installing Fedora 35
+        </a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/2022/04/16/Desktop/2022-4-16-5-Things-You-MUST-DO-After-Installing-Fedora-35/" target="_self">
+          
+          1. Optimize DNF ConfigEdit &#x2F;etc&#x2F;dnf&#x2F;dnf.conf, add lines below: 123fastestmirror&#x3D;Truemax_parallel_downloads&#x3D;10defaultyes&#x3D;True  2. System Update12sudo dnf update# Just hit Enter.  3. Enable RPM[1] Proce
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2022-04-16 00:00" pubdate>
+              2022-04-16
+            </time>
+          </div>
+        
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/Linux/">Linux</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+      <div class="col-12 col-md-4 m-auto index-img">
+        <a href="/2022/04/12/Desktop/Apps-for-Apple-Watch/" target="_self">
+          <img src="http://neebpraveen.com/wp-content/uploads/2017/08/Best-Apps-Apple-Watch-.jpg" srcset="/img/loading.gif" lazyload alt="Apps for Apple Watch">
+        </a>
+      </div>
+    
+    <article class="col-12 col-md-8 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2022/04/12/Desktop/Apps-for-Apple-Watch/" target="_self">
+          Apps for Apple Watch
+        </a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/2022/04/12/Desktop/Apps-for-Apple-Watch/" target="_self">
+          
+          App Lists: Alipay Wechat Auto Sleep * 网易云音乐 滴滴出行 QQ音乐 喜马拉雅&#x2F; Himalaya Seven: Workout Spotify  Something UncertainECG:[1]  📱 iOS 15.2 RC (19C56) ⌚️watchOS 8.3 RC (19S55)   iOS 系统中的 健康 &gt; 心脏 中开启
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2022-04-12 11:50" pubdate>
+              2022-04-12
+            </time>
+          </div>
+        
+        
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+      <div class="col-12 col-md-4 m-auto index-img">
+        <a href="/2022/04/10/Desktop/2022-04-10-Set-static-IP-address-on-Debian-Linux/" target="_self">
+          <img src="https://www.howtogeek.com/wp-content/uploads/2021/07/debian-11-bullseye-gnome-desktop-wide.png?height=200p&amp;trim=2,2,2,2" srcset="/img/loading.gif" lazyload alt="Set static IP address on Debian Linux">
+        </a>
+      </div>
+    
+    <article class="col-12 col-md-8 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2022/04/10/Desktop/2022-04-10-Set-static-IP-address-on-Debian-Linux/" target="_self">
+          Set static IP address on Debian Linux
+        </a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/2022/04/10/Desktop/2022-04-10-Set-static-IP-address-on-Debian-Linux/" target="_self">
+          
+          he procedure is as follows to set up and configure a static IP information:  Open the terminal application. Log in to remote or server using ssh command. Backup &#x2F;etc&#x2F;network&#x2F;interfaces
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2022-04-10 23:25" pubdate>
+              2022-04-10
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-category"></i>
+            
+              <a href="/categories/%E5%AD%A6%E4%B9%A0-Learning/">学习 / Learning</a>
+            
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/Debian/">Debian</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+      <div class="col-12 col-md-4 m-auto index-img">
+        <a href="/2022/04/08/Desktop/Github%20Token%20For%20PicGo%20PicBed/" target="_self">
+          <img src="https://assets.st-note.com/production/uploads/images/24127642/rectangle_large_type_2_802007386bb75d9db15a6dd2880e2584.jpg" srcset="/img/loading.gif" lazyload alt="Github Token For PicGo PicBed">
+        </a>
+      </div>
+    
+    <article class="col-12 col-md-8 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2022/04/08/Desktop/Github%20Token%20For%20PicGo%20PicBed/" target="_self">
+          Github Token For PicGo PicBed
+        </a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/2022/04/08/Desktop/Github%20Token%20For%20PicGo%20PicBed/" target="_self">
+          
+          Github Token For PicGo PicBedPicGo 1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    https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;用户名&#x2F;RepositoryName&#x2F;分支名 https:&#x2F;&#x2F;cdn.jsdelivr.net&#x2F;gh&#x2F;用户名&#x2F;RepositoryName&#x2F;分支名 12https:&#x2F;&#x2F;ra
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2022-04-08 23:25" pubdate>
+              2022-04-08
+            </time>
+          </div>
+        
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/Git/">Git</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+      <div class="col-12 col-md-4 m-auto index-img">
+        <a href="/2022/04/08/Desktop/2022-04-08-Git-Tutorial/" target="_self">
+          <img src="https://raw.githubusercontent.com/shawncheun/PicBed/master/img/git.jpg" srcset="/img/loading.gif" lazyload alt="Git Tutorial">
+        </a>
+      </div>
+    
+    <article class="col-12 col-md-8 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2022/04/08/Desktop/2022-04-08-Git-Tutorial/" target="_self">
+          Git Tutorial
+        </a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/2022/04/08/Desktop/2022-04-08-Git-Tutorial/" target="_self">
+          
+          [1]* [2] Git - Basic ConceptsVersion Control System (VCS):   Centralized, Distributed&#x2F;Decentralized  Advantages of Git  Free and open source Fast and small Implicit backup Security No need of pow
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2022-04-08 23:25" pubdate>
+              2022-04-08
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-category"></i>
+            
+              <a href="/categories/%E5%AD%A6%E4%B9%A0-Learning/">学习 / Learning</a>
+            
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/Git/">Git</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+      <div class="col-12 col-md-4 m-auto index-img">
+        <a href="/2022/04/07/%E7%84%A6%E8%99%91%E6%8A%91%E9%83%81%EF%BC%9A%E5%88%AB%E5%90%83%E8%BF%99%E5%87%A0%E7%A7%8D%E9%A3%9F%E5%93%81/" target="_self">
+          <img src="https://raw.githubusercontent.com/shawncheun/PicBed/master/img/depression.webp" srcset="/img/loading.gif" lazyload alt="焦虑抑郁：别吃这几种食品">
+        </a>
+      </div>
+    
+    <article class="col-12 col-md-8 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2022/04/07/%E7%84%A6%E8%99%91%E6%8A%91%E9%83%81%EF%BC%9A%E5%88%AB%E5%90%83%E8%BF%99%E5%87%A0%E7%A7%8D%E9%A3%9F%E5%93%81/" target="_self">
+          焦虑抑郁：别吃这几种食品
+        </a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/2022/04/07/%E7%84%A6%E8%99%91%E6%8A%91%E9%83%81%EF%BC%9A%E5%88%AB%E5%90%83%E8%BF%99%E5%87%A0%E7%A7%8D%E9%A3%9F%E5%93%81/" target="_self">
+          
+          焦虑抑郁：别吃这几种食品 咖啡因  尼古丁  过多的食盐  过量饮酒  低血糖
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2022-04-07 00:00" pubdate>
+              2022-04-07
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-category"></i>
+            
+              <a href="/categories/%E5%81%A5%E5%BA%B7-Health/">健康 / Health</a>
+            
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/%E7%84%A6%E8%99%91/">焦虑</a>
+            
+              <a href="/tags/%E6%8A%91%E9%83%81/">抑郁</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+
+
+  <nav aria-label="navigation">
+    <span class="pagination" id="pagination">
+      <span class="page-number current">1</span><a class="page-number" href="/page/2/#board">2</a><a class="page-number" href="/page/3/#board">3</a><a class="extend next" rel="next" href="/page/2/#board"><i class="iconfont icon-arrowright"></i></a>
+    </span>
+  </nav>
+
+
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">Search</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">keyword</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+
+    
+  </main>
+
+  <footer class="text-center mt-5 py-3">
+  <div class="footer-content">
+     <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+  </div>
+  
+  <div class="statistics">
+    
+    
+
+    
+      
+        <!-- 不蒜子统计PV -->
+        <span id="busuanzi_container_site_pv" style="display: none">
+            总访问量 
+            <span id="busuanzi_value_site_pv"></span>
+             次
+          </span>
+      
+      
+        <!-- 不蒜子统计UV -->
+        <span id="busuanzi_container_site_uv" style="display: none">
+            总访客数 
+            <span id="busuanzi_value_site_uv"></span>
+             人
+          </span>
+      
+    
+  </div>
+
+
+  
+
+  
+</footer>
+
+
+  <!-- SCRIPTS -->
+  
+  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js" ></script>
+<script  src="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+<!-- Plugins -->
+
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+  
+
+
+
+
+
+  <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
+
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/typed.js@2/lib/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var title = document.getElementById('subtitle').title;
+      
+        typing(title);
+      
+    })(window, document);
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- 主题的启动项 保持在最底部 -->
+<script  src="/js/boot.js" ></script>
+
+
+</body>
+</html>
